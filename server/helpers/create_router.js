@@ -10,8 +10,6 @@ const createRouter = function(collection){
         .find() 
         .toArray()
         .then(result => res.json(result))
-
-        console.log("you reached here")
     })
 
     
@@ -24,11 +22,14 @@ const createRouter = function(collection){
     router.post("/guests/update/:id", (req, res)=>{
         collection
         .updateOne({_id:ObjectId(req.params.id)}, {$set: req.body})
-        collection
-        .find()
-        .toArray()
-        .then(result => res.json(result))
+        .then(()=>{
+            collection
+            .find()
+            .toArray()
+            .then(result => res.json(result))
+        })
     })
+
 
     router.delete("/guests/delete/:id", (req, res)=>{
         collection

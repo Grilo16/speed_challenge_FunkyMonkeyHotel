@@ -1,7 +1,7 @@
 import backEndRoutes from "../guestRepository/guest_repository";
 import GuestItem from "./GuestItem";
 
-const GuestList = function({guests, setGuests}){
+const GuestList = function({guests, setGuests, getGuestToEdit}){
 
     const handleRemoveGuest = function(guest){
         backEndRoutes.removeGuestById(guest._id)
@@ -9,12 +9,14 @@ const GuestList = function({guests, setGuests}){
     };
 
     const handleChangeStatus = function(guest){
+        
         let newStatus = {}
         guest.isCheckedIn
         ? newStatus = {isCheckedIn : false}
         : newStatus = {isCheckedIn : true }
         backEndRoutes.editGuestById(guest._id, newStatus)
-        .then(guests => setGuests(guests))
+        .then((newGuests) => {setGuests(newGuests)})
+        
 
     }
 
