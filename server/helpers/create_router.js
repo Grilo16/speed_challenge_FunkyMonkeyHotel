@@ -20,6 +20,12 @@ const createRouter = function(collection){
         .then(res.json(req.body))
     })
 
+    router.post("/guests/:id", (req, res)=>{
+        collection
+        .updateOne({_id:ObjectId(req.params.id)}, {$set: req.body})
+        .then(res.json(req.body))
+    })
+
     
     return router
 
