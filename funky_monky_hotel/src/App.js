@@ -13,8 +13,7 @@ function App() {
   useEffect(()=>{
     backEndRoutes.getAllGuests()
     .then(setGuests)
-  }, [])
-
+  }, [guests])
 
   return (
         <div className="main-container">

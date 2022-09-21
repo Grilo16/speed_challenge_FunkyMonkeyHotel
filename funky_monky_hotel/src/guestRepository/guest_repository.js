@@ -12,8 +12,14 @@ const backEndRoutes = {
             headers:{"Content-Type": "application/json"}
         })
         .then(res => res.json())
-    }
+    },
 
+    removeGuestById(id){
+        return fetch(`http://localhost:9000/guests/delete/${id}`, {
+            method:"DELETE"
+        })
+        .then(res => res.json())
+    }
 
 }
 
