@@ -17,7 +17,8 @@ function App() {
 
   return (
         <div className="main-container">
-          <h2>front end begins here</h2>
+          <h1>Welcome to Hotel Funkey Monkey</h1>
+          <hr />
           <FormComponent guests={guests} setGuests={setGuests}/>
           <GuestList guests={guests} setGuests={setGuests}/>
         </div>

@@ -20,12 +20,18 @@ const FormComponent = function({guests, setGuests}){
     };
 
     return (
+        
+        <div className="add-user-form">
+            <h3>Add a new guest</h3>
         <form onSubmit={handleSubmit} >
             <InputField label={"name"} value={name} setValue={setName}/>
+            <br />
             <InputField label={"email"} value={email} setValue={setEmail}/>
+            <br />
             <button type="submit"> Add Guest </button>
-            
         </form>
+        </div>
+            
     )
 };
 

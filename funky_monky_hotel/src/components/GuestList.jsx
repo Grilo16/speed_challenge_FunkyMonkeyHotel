@@ -20,7 +20,7 @@ const GuestList = function({guests, setGuests}){
 
     const displayGuests = guests.map((guest)=>{
         return (
-            <li key={guest._id} >
+            <li className="guest-list-item" key={guest._id} >
              <GuestItem guest={guest}  />
              <button onClick={()=>handleRemoveGuest(guest)}>Remove Guest</button>
              <button onClick={()=>handleChangeStatus(guest)}>Change Status</button>
@@ -33,11 +33,9 @@ const GuestList = function({guests, setGuests}){
 
 
     return (
-        <div className="guest-list">
-        <ul>
+        <ul className="guest-list">
             {displayGuests}
         </ul>
-        </div>
 
     )
 };
