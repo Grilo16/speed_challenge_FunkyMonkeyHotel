@@ -12,6 +12,14 @@ const createRouter = function(collection){
 
         console.log("you reached here")
     })
+
+    
+    router.post("/guests/add", (req, res)=>{
+        collection
+        .insertOne(req.body)
+        .then(res.json(req.body))
+    })
+
     
     return router
 
