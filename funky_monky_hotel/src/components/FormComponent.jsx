@@ -11,6 +11,9 @@ const FormComponent = function({guests, setGuests}){
 
     const handleSubmit = function(e){
         e.preventDefault()
+        if (!name || !email){
+            return
+        }
         const guestObject = { name : name, email: email, isCheckedIn: false }
         backEndRoutes.addGuest(guestObject)
         .then(object => setGuests([...guests, object ]))
