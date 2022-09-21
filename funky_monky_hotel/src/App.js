@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import FormComponent from './components/FormComponent';
 import GuestList from './components/GuestList';
+import InputField from './components/InputField';
 import backEndRoutes from './guestRepository/guest_repository';
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
   return (
         <div className="main-container">
           <h2>front end begins here</h2>
+          <FormComponent/>
           <GuestList guests={guests} setGuests={setGuests}/>
         </div>
   );
