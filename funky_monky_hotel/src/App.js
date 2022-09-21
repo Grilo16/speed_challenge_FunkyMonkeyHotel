@@ -19,7 +19,7 @@ function App() {
   return (
         <div className="main-container">
           <h2>front end begins here</h2>
-          <FormComponent/>
+          <FormComponent guests={guests} setGuests={setGuests}/>
           <GuestList guests={guests} setGuests={setGuests}/>
         </div>
   );
