@@ -24,17 +24,23 @@ const createRouter = function(collection){
     router.post("/guests/update/:id", (req, res)=>{
         collection
         .updateOne({_id:ObjectId(req.params.id)}, {$set: req.body})
-        .then(res.json(req.body))
+        collection
+        .find()
+        .toArray()
+        .then(result => res.json(result))
     })
 
     router.delete("/guests/delete/:id", (req, res)=>{
         collection
         .deleteOne({_id:ObjectId(req.params)})
-        collection
-        .find()
-        .toArray()
-        .then(collection => res.json(collection) )
+        .then(()=>{
+            collection
+            .find()
+            .toArray()
+            .then(collection => res.json(collection) )
+        })
     })
+
     
     return router
 

@@ -19,6 +19,15 @@ const backEndRoutes = {
             method:"DELETE"
         })
         .then(res => res.json())
+    },
+    
+    editGuestById(id, patchObject){
+        return fetch(`http://localhost:9000/guests/update/${id}`, {
+            method: "POST",
+            body: JSON.stringify(patchObject),
+            headers:{"Content-Type": "application/json"}
+        })
+        .then(res => res.json())
     }
 
 }

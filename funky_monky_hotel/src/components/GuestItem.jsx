@@ -5,7 +5,9 @@ const GuestItem = function({guest}){
         
         <h2>{guest.name}</h2>
         <h2>{guest.email}</h2>
-        <h2>{guest.status}</h2>
+        {guest.isCheckedIn
+        ? <p>Checked In</p> 
+        : <p>Checked out</p>}
         
         </>
     )

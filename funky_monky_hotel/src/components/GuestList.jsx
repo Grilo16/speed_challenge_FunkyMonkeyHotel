@@ -8,11 +8,22 @@ const GuestList = function({guests, setGuests}){
         .then((newGuests) => {setGuests(newGuests)})
     };
 
+    const handleChangeStatus = function(guest){
+        let newStatus = {}
+        guest.isCheckedIn
+        ? newStatus = {isCheckedIn : false}
+        : newStatus = {isCheckedIn : true }
+        backEndRoutes.editGuestById(guest._id, newStatus)
+        .then(guests => setGuests(guests))
+
+    }
+
     const displayGuests = guests.map((guest)=>{
         return (
             <li key={guest._id} >
              <GuestItem guest={guest}  />
              <button onClick={()=>handleRemoveGuest(guest)}>Remove Guest</button>
+             <button onClick={()=>handleChangeStatus(guest)}>Change Status</button>
             </li>           
 
 
